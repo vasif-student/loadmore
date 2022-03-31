@@ -1,0 +1,14 @@
+﻿
+
+var skipCount = parseInt($("#skipCount").val());
+console.log(skipCount);
+$(document).on("click", "#loadmore-car-btn", function () {
+    $.ajax({
+        type: "GET",
+        url: "Home/LoadMore/" + skipCount,
+        success: function (res) {
+            skipCount += 4;
+            $("#carModel-card-box").append(res);
+        }
+    })
+})
